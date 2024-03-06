@@ -1,0 +1,17 @@
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\MidiWatcher.exe.config
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\MidiWatcher.exe
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\MidiWatcher.pdb
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\Sanford.Collections.dll
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\Sanford.Multimedia.dll
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\Sanford.Multimedia.Midi.dll
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\Sanford.Threading.dll
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\Sanford.Multimedia.Timers.dll
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\bin\Debug\Sanford.Multimedia.Midi.pdb
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.csproj.AssemblyReference.cache
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.Form1.resources
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.Properties.Resources.resources
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.csproj.GenerateResource.cache
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.csproj.CoreCompileInputs.cache
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.csproj.CopyComplete
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.exe
+G:\_git\csharpmiditoolkitv5_demo_my_version\MidiWatcher\obj\Debug\MidiWatcher.pdb

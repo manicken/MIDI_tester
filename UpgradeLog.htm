@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+ <html xmlns:msxsl="urn:schemas-microsoft-com:xslt"><head><meta content="en-us" http-equiv="Content-Language" /><meta content="text/html; charset=utf-16" http-equiv="Content-Type" /><title _locID="ConversionReport0">
+          Migration Report
+        </title><style> 
+                    /* Body style, for the entire document */
+                    body
+                    {
+                        background: #F3F3F4;
+                        color: #1E1E1F;
+                        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    /* Header1 style, used for the main title */
+                    h1
+                    {
+                        padding: 10px 0px 10px 10px;
+                        font-size: 21pt;
+                        background-color: #E2E2E2;
+                        border-bottom: 1px #C1C1C2 solid; 
+                        color: #201F20;
+                        margin: 0;
+                        font-weight: normal;
+                    }
+
+                    /* Header2 style, used for "Overview" and other sections */
+                    h2
+                    {
+                        font-size: 18pt;
+                        font-weight: normal;
+                        padding: 15px 0 5px 0;
+                        margin: 0;
+                    }
+
+                    /* Header3 style, used for sub-sections, such as project name */
+                    h3
+                    {
+                        font-weight: normal;
+                        font-size: 15pt;
+                        margin: 0;
+                        padding: 15px 0 5px 0;
+                        background-color: transparent;
+                    }
+
+                    /* Color all hyperlinks one color */
+                    a
+                    {
+                        color: #1382CE;
+                    }
+
+                    /* Table styles */ 
+                    table
+                    {
+                        border-spacing: 0 0;
+                        border-collapse: collapse;
+                        font-size: 10pt;
+                    }
+
+                    table th
+                    {
+                        background: #E7E7E8;
+                        text-align: left;
+                        text-decoration: none;
+                        font-weight: normal;
+                        padding: 3px 6px 3px 6px;
+                    }
+
+                    table td
+                    {
+                        vertical-align: top;
+                        padding: 3px 6px 5px 5px;
+                        margin: 0px;
+                        border: 1px solid #E7E7E8;
+                        background: #F7F7F8;
+                    }
+
+                    /* Local link is a style for hyperlinks that link to file:/// content, there are lots so color them as 'normal' text until the user mouse overs */
+                    .localLink
+                    {
+                        color: #1E1E1F;
+                        background: #EEEEED;
+                        text-decoration: none;
+                    }
+
+                    .localLink:hover
+                    {
+                        color: #1382CE;
+                        background: #FFFF99;
+                        text-decoration: none;
+                    }
+
+                    /* Center text, used in the over views cells that contain message level counts */ 
+                    .textCentered
+                    {
+                        text-align: center;
+                    }
+
+                    /* The message cells in message tables should take up all avaliable space */
+                    .messageCell
+                    {
+                        width: 100%;
+                    }
+
+                    /* Padding around the content after the h1 */ 
+                    #content 
+                    {
+	                    padding: 0px 12px 12px 12px; 
+                    }
+
+                    /* The overview table expands to width, with a max width of 97% */ 
+                    #overview table
+                    {
+                        width: auto;
+                        max-width: 75%; 
+                    }
+
+                    /* The messages tables are always 97% width */
+                    #messages table
+                    {
+                        width: 97%;
+                    }
+
+                    /* All Icons */
+                    .IconSuccessEncoded, .IconInfoEncoded, .IconWarningEncoded, .IconErrorEncoded
+                    {
+                        min-width:18px;
+                        min-height:18px; 
+                        background-repeat:no-repeat;
+                        background-position:center;
+                    }
+
+                    /* Success icon encoded */
+                    .IconSuccessEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconSuccess#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABcElEQVR4Xq2TsUsCURzHv15g8ZJcBWlyiYYgCIWcb9DFRRwMW5TA2c0/QEFwFkxxUQdxVlBwCYWOi6IhWgQhBLHJUCkhLr/BW8S7gvrAg+N+v8/v+x68Z8MGy+XSCyABQAXgBgHGALoASkIIDWSLeLBetdHryMjd5IxQPWT4rn1c/P7+xxp72Cs9m5SZ0Bq2vPnbPFafK2zDvmNHypdC0BPkLlQhxJsCAhQoZwdZU5mwxh720qGo8MzTxTTKZDPCx2HoVzp6lz0Q9tKhyx0kGs8Ny+TkWRKk8lCROwEduhyg9l/6lunOPSfmH3NUH6uQ0KHLAe7JYvJjevm+DAMGJHToKtigE+vwvIidxLamb8IBY9e+C5LiXREkfho3TSd06HJA13/oh6T51MTsfQbHrsMynQ5dDihFjiK8JJAU9AKIWTp76dCVN7HWHrajmUEGvyF9nkbAE6gLIS7kTUyuf2gscLoJrElZo/Mvj+nPz/kLTmfnEwP3tB0AAAAASUVORK5CYII=);
+                    }
+
+                    /* Information icon encoded */
+                    .IconInfoEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconInformation#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHElEQVR4Xs2TsUoDQRRF7wwoziokjZUKadInhdhukR9YP8DMX1hYW+QvdsXa/QHBbcXC7W0CamWTQnclFutceIQJwwaWNLlwm5k5d94M76mmaeCrrmsLYOocY12FcxZFUeozCqKqqgYA8uevv1H6VuPxcwlfk5N92KHBxfFeCSAxxswlYAW/Xr989x/mv9gkhtyMDhcAxgzRsp7flj8B/HF1RsMXq+NZMkopaHe7lbKxQUEIGbKsYNoGn969060hZBkQex/W8oRQwsQaW2o3Ago2SVcJUzAgY3N0lTCZZm+zPS8HB51gMmS1DEYyOz9acKO1D8JWTlafKIMxdhvlfdyT94Vv5h7P8Ky7nQzACmhvKq3zk3PjW9asz9D/1oigecsioooAAAAASUVORK5CYII=);
+                    }
+
+                    /* Warning icon encoded */
+                    .IconWarningEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconWarning#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAx0lEQVR4XpWSMQ7CMAxFf4xAyBMLCxMrO8dhaBcuwdCJS3RJBw7SA/QGTCxdWJgiQYWKXJWKIXHIlyw5lqr34tQgEOdcBsCOx5yZK3hCCKdYXneQkh4pEfqzLfu+wVDSyyzFoJjfz9NB+pAF+eizx2Vruts0k15mPgvS6GYvpVtQhB61IB/dk6AF6fS4Ben0uIX5odtFe8Q/eW1KvFeH4e8khT6+gm5B+t3juyDt7n0jpe+CANTd+oTUjN/U3yVaABnSUjFz/gFq44JaVSCXeQAAAABJRU5ErkJggg==);
+                    }
+
+                    /* Error icon encoded */
+                    .IconErrorEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconError#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQElEQVR4XqWTvUoEQRCE6wYPZUA80AfwAQz23uCMjA7MDRQEIzPBVEyNTQUFIw00vcQTTMzuAh/AxEQQT8HF/3G/oGGnEUGuoNnd6qoZuqltyKEsyzVJq5I6rnUp6SjGeGhESikzzlc1eL7opfuVbrqbU1Zw9NCgtQMaZpY0eNnaaL2fHusvTK5vKu7sjSS1Y4y3QUA6K3e3Mau5UFDyMP7tYF9o8cAHZv68vipoIJg971PZIZ5HiwdvYGGvFVFHmGmZ2MxwmQYPXubPl9Up0tfoMQGetXd6mRbvhBw+boZ6WF7Mbv1+GsHRk0fQmPAH1GfmZirbCfDJ61tw3Px8/8pZsPAG4jlVhcPgZ7adwNWBB68lkRQWFiTgFlbnLY3DGGM7izIJIyT/jjIvEJw6fdJTc6krDzh6aMwMP9bvDH4ADSsa9uSWVJkAAAAASUVORK5CYII=);
+                    }
+                 </style><script type="text/javascript" language="javascript"> 
+          
+            // Startup 
+            // Hook up the the loaded event for the document/window, to linkify the document content
+            var startupFunction = function() { linkifyElement("messages"); };
+            
+            if(window.attachEvent)
+            {
+              window.attachEvent('onload', startupFunction);
+            }
+            else if (window.addEventListener) 
+            {
+              window.addEventListener('load', startupFunction, false);
+            }
+            else 
+            {
+              document.addEventListener('load', startupFunction, false);
+            } 
+            
+            // Toggles the visibility of table rows with the specified name 
+            function toggleTableRowsByName(name)
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  if(!!currentName && currentName.indexOf(name) == 0)
+                  {
+                      var isVisible = allRows[i].style.display == ''; 
+                      isVisible ? allRows[i].style.display = 'none' : allRows[i].style.display = '';
+                  }
+               }
+            }
+            
+            function scrollToFirstVisibleRow(name) 
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  var isVisible = allRows[i].style.display == ''; 
+                  if(!!currentName && currentName.indexOf(name) == 0 && isVisible)
+                  {
+                     allRows[i].scrollIntoView(true); 
+                     return true; 
+                  }
+               }
+               
+               return false;
+            }
+            
+            // Linkifies the specified text content, replaces candidate links with html links 
+            function linkify(text)
+            {
+                 if(!text || 0 === text.length)
+                 {
+                     return text; 
+                 }
+
+                 // Find http, https and ftp links and replace them with hyper links 
+                 var urlLink = /(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.]+(:[a-zA-Z0-9]*)?\/?([a-zA-Z0-9\-\._\?\,\/\\\+&%\$#\=~;\{\}])*/gi;
+                 
+                 return text.replace(urlLink, '<a href="$&">$&</a>') ;
+            }
+            
+            // Linkifies the specified element by ID
+            function linkifyElement(id)
+            {
+                var element = document.getElementById(id);
+                if(!!element)
+                {
+                  element.innerHTML = linkify(element.innerHTML); 
+                }
+            }
+            
+            function ToggleMessageVisibility(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              toggleTableRowsByName("MessageRowClass" + projectName);
+              toggleTableRowsByName('MessageRowHeaderShow' + projectName);
+              toggleTableRowsByName('MessageRowHeaderHide' + projectName); 
+            }
+            
+            function ScrollToFirstVisibleMessage(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              // First try the 'Show messages' row
+              if(!scrollToFirstVisibleRow('MessageRowHeaderShow' + projectName))
+              {
+                // Failed to find a visible row for 'Show messages', try an actual message row 
+                scrollToFirstVisibleRow('MessageRowClass' + projectName); 
+              }
+            }
+           </script></head><body><h1 _locID="ConversionReport">
+          Migration Report - CSharpMidiToolkitV5_demo</h1><div id="content"><h2 _locID="OverviewTitle">Overview</h2><div id="overview"><table><tr><th></th><th _locID="ProjectTableHeader">Project</th><th _locID="PathTableHeader">Path</th><th _locID="ErrorsTableHeader">Errors</th><th _locID="WarningsTableHeader">Warnings</th><th _locID="MessagesTableHeader">Messages</th></tr><tr><td class="IconWarningEncoded" /><td><strong><a href="#Solution"><span _locID="OverviewSolutionSpan">Solution</span></a></strong></td><td>CSharpMidiToolkitV5_demo.sln</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#SolutionWarning">1</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('Solution'); return false;">2</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#MidiWatcher">MidiWatcher</a></strong></td><td>MidiWatcher\MidiWatcher.csproj</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('MidiWatcher'); return false;">12</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#Sanford.Multimedia.Midi">Sanford.Multimedia.Midi</a></strong></td><td>Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('Sanford.Multimedia.Midi'); return false;">80</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#SequencerDemo">SequencerDemo</a></strong></td><td>SequencerDemo\SequencerDemo.csproj</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('SequencerDemo'); return false;">15</a></td></tr></table></div><h2 _locID="SolutionAndProjectsTitle">Solution and projects</h2><div id="messages"><a name="Solution" /><h3 _locID="ProjectDisplayNameHeader">Solution</h3><table><tr id="SolutionHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="WarningRowClassSolution"><td class="IconWarningEncoded"><a name="SolutionWarning" /></td><td class="messageCell"><strong>CSharpMidiToolkitV5_demo.sln:
+        </strong><span>Visual Studio needs to make non-functional changes to this project in order to enable the project to open in released versions of Visual Studio newer than Visual Studio 2010 SP1 without impacting project behavior.</span></td></tr><tr name="MessageRowHeaderShowSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          Show 2 additional messages
+        </a></td></tr><tr name="MessageRowClassSolution" style="display: none"><td class="IconInfoEncoded"><a name="SolutionMessage" /></td><td class="messageCell"><strong>CSharpMidiToolkitV5_demo.sln:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\CSharpMidiToolkitV5_demo.sln</span></td></tr><tr name="MessageRowClassSolution" style="display: none"><td class="IconInfoEncoded"><a name="SolutionMessage" /></td><td class="messageCell"><strong>CSharpMidiToolkitV5_demo.sln:
+        </strong><span>Solution migrated successfully</span></td></tr><tr style="display: none" name="MessageRowHeaderHideSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          Hide 2 additional messages
+        </a></td></tr></table><a name="MidiWatcher" /><h3>MidiWatcher</h3><table><tr id="MidiWatcherHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="MessageRowHeaderShowMidiWatcher"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="MidiWatcherMessage" onclick="ToggleMessageVisibility('MidiWatcher'); return false;">
+          Show 12 additional messages
+        </a></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\MidiWatcher.csproj:
+        </strong><span>Project file successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\MidiWatcher.csproj</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Form1.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Form1.cs</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Form1.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Form1.Designer.cs</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Program.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Program.cs</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Properties\AssemblyInfo.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Properties\AssemblyInfo.cs</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Properties\Resources.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Properties\Resources.Designer.cs</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Properties\Settings.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Properties\Settings.Designer.cs</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Properties\Settings.settings:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Properties\Settings.settings</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Form1.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Form1.resx</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\Properties\Resources.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\MidiWatcher\Properties\Resources.resx</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\MidiWatcher.csproj:
+        </strong><span>Project migrated successfully</span></td></tr><tr name="MessageRowClassMidiWatcher" style="display: none"><td class="IconInfoEncoded"><a name="MidiWatcherMessage" /></td><td class="messageCell"><strong>MidiWatcher\MidiWatcher.csproj:
+        </strong><span>Scan complete: Migration not required for project files.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideMidiWatcher"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="MidiWatcherMessage" onclick="ToggleMessageVisibility('MidiWatcher'); return false;">
+          Hide 12 additional messages
+        </a></td></tr></table><a name="Sanford.Multimedia.Midi" /><h3>Sanford.Multimedia.Midi</h3><table><tr id="Sanford.Multimedia.MidiHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="MessageRowHeaderShowSanford.Multimedia.Midi"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="Sanford.Multimedia.MidiMessage" onclick="ToggleMessageVisibility('Sanford.Multimedia.Midi'); return false;">
+          Show 80 additional messages
+        </a></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj:
+        </strong><span>Project file successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj.user:
+        </strong><span>Project user file successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj.user</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\AssemblyInfo.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\AssemblyInfo.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\MidiDevice.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\MidiDevice.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\MidiDeviceException.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\MidiDeviceException.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Construction.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Construction.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Fields.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Fields.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Messaging.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Messaging.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Properties.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Properties.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.PublicMethods.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.PublicMethods.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Win32.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Win32.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\MidiHeader.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\MidiHeader.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\MidiHeaderBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\MidiHeaderBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\MidiInCaps.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\MidiInCaps.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\MidiOutCaps.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\MidiOutCaps.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\NoOpEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\NoOpEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\OutputDevice.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\OutputDevice.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\OutputDeviceBase.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\OutputDeviceBase.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\KeySignatureBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\KeySignatureBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\GeneralMidi.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\GeneralMidi.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\ChannelMessage.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\ChannelMessage.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\IMidiMessage.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\IMidiMessage.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\ChannelMessageBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\ChannelMessageBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\IMessageBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\IMessageBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\MetaTextBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\MetaTextBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\SongPositionPointerBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\SongPositionPointerBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\SysCommonMessageBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\SysCommonMessageBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\TempoChangeBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\TempoChangeBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\Message Builders\TimeSignatureBuilder.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\Message Builders\TimeSignatureBuilder.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\MetaMessage.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\MetaMessage.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\ShortMessage.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\ShortMessage.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\SysCommonMessage.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\SysCommonMessage.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\SysExMessage.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\SysExMessage.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\SysRealtimeMessage.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\SysRealtimeMessage.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\MidiNoteConverter.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\MidiNoteConverter.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Processing\ChannelChaser.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Processing\ChannelChaser.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Clocks\IClock.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Clocks\IClock.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Processing\ChannelStopper.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Processing\ChannelStopper.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\MidiFileProperties.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\MidiFileProperties.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Clocks\MidiInternalClock.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Clocks\MidiInternalClock.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Clocks\PpqnClock.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Clocks\PpqnClock.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\Sequence.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\Sequence.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\MidiEvent.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\MidiEvent.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\Track Classes\Track.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\Track Classes\Track.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\Track Classes\Track.Iterators.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\Track Classes\Track.Iterators.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\Track Classes\TrackReader.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\Track Classes\TrackReader.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\Track Classes\TrackWriter.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\Track Classes\TrackWriter.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\OutputStream.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\OutputDevice Classes\OutputStream.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\MessageDispatcher.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\MessageDispatcher.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Events.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Device Classes\InputDevice Class\InputDevice.Events.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\EventArgs\ChannelMessageEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\EventArgs\ChannelMessageEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\EventArgs\InvalidShortMessageEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\EventArgs\InvalidShortMessageEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\EventArgs\InvalidSysExMessageEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\EventArgs\InvalidSysExMessageEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\EventArgs\MetaMessageEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\EventArgs\MetaMessageEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\EventArgs\SysCommonMessageEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\EventArgs\SysCommonMessageEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\EventArgs\SysExMessageEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\EventArgs\SysExMessageEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Messages\EventArgs\SysRealtimeMessageEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Messages\EventArgs\SysRealtimeMessageEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Processing\ChasedEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Processing\ChasedEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Processing\StoppedEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Processing\StoppedEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\RecordingSession.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\RecordingSession.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\Sequencer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\Sequencer.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sequencing\Track Classes\Track.Test.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\Sequencing\Track Classes\Track.Test.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\DeviceDialog.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\DeviceDialog.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\DeviceDialog.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\DeviceDialog.Designer.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\InputDeviceDialog.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\InputDeviceDialog.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\InputDeviceDialog.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\InputDeviceDialog.Designer.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\OutputDeviceDialog.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\OutputDeviceDialog.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\OutputDeviceDialog.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\OutputDeviceDialog.Designer.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\PianoControl.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\PianoControl.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\PianoControl.PianoKey.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\PianoControl.PianoKey.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\PianoControlDialog.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\PianoControlDialog.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\PianoControlDialog.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\PianoControlDialog.Designer.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\PianoKeyEventArgs.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\PianoKeyEventArgs.cs</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\DeviceDialog.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\DeviceDialog.resx</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\InputDeviceDialog.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\InputDeviceDialog.resx</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\OutputDeviceDialog.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\OutputDeviceDialog.resx</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\UI\PianoControlDialog.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\Sanford.Multimedia.Midi\UI\PianoControlDialog.resx</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj:
+        </strong><span>Project migrated successfully</span></td></tr><tr name="MessageRowClassSanford.Multimedia.Midi" style="display: none"><td class="IconInfoEncoded"><a name="Sanford.Multimedia.MidiMessage" /></td><td class="messageCell"><strong>Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj:
+        </strong><span>Scan complete: Migration not required for project files.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideSanford.Multimedia.Midi"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="Sanford.Multimedia.MidiMessage" onclick="ToggleMessageVisibility('Sanford.Multimedia.Midi'); return false;">
+          Hide 80 additional messages
+        </a></td></tr></table><a name="SequencerDemo" /><h3>SequencerDemo</h3><table><tr id="SequencerDemoHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="MessageRowHeaderShowSequencerDemo"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="SequencerDemoMessage" onclick="ToggleMessageVisibility('SequencerDemo'); return false;">
+          Show 15 additional messages
+        </a></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\SequencerDemo.csproj:
+        </strong><span>Project file successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\SequencerDemo.csproj</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\AboutDialog.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\AboutDialog.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\AboutDialog.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\AboutDialog.Designer.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Form1.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Form1.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Form1.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Form1.Designer.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Program.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Program.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Properties\AssemblyInfo.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Properties\AssemblyInfo.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Properties\Resources.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Properties\Resources.Designer.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Properties\Settings.Designer.cs:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Properties\Settings.Designer.cs</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Properties\Settings.settings:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Properties\Settings.settings</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\AboutDialog.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\AboutDialog.resx</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Form1.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Form1.resx</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\Properties\Resources.resx:
+        </strong><span>File successfully backed up as G:\_git\csharpmiditoolkitv5_demo\Backup\SequencerDemo\Properties\Resources.resx</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\SequencerDemo.csproj:
+        </strong><span>Project migrated successfully</span></td></tr><tr name="MessageRowClassSequencerDemo" style="display: none"><td class="IconInfoEncoded"><a name="SequencerDemoMessage" /></td><td class="messageCell"><strong>SequencerDemo\SequencerDemo.csproj:
+        </strong><span>Scan complete: Migration not required for project files.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideSequencerDemo"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="SequencerDemoMessage" onclick="ToggleMessageVisibility('SequencerDemo'); return false;">
+          Hide 15 additional messages
+        </a></td></tr></table></div></div></body></html>

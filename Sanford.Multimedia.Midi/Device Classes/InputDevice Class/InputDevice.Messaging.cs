@@ -137,7 +137,8 @@ namespace Sanford.Multimedia.Midi
 
         private void HandleSysExMessage(object state)
         {
-            lock(lockObject)
+            System.Windows.Forms.MessageBox.Show("hip hop");
+            lock (lockObject)
             {
                 IntPtr headerPtr = (IntPtr)state;
 
@@ -149,14 +150,19 @@ namespace Sanford.Multimedia.Midi
                     {
                         sysExData.Add(Marshal.ReadByte(header.data, i));
                     }
-
-                    if(sysExData[0] == 0xF0 && sysExData[sysExData.Count - 1] == 0xF7)
+                    System.Windows.Forms.MessageBox.Show("hello");
+                    if (sysExData[0] == 0xF0 && sysExData[sysExData.Count - 1] == 0xF7)
                     {
                         SysExMessage message = new SysExMessage(sysExData.ToArray());
 
                         sysExData.Clear();
 
                         OnSysExMessageReceived(new SysExMessageEventArgs(message));
+                    }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("whello");
+                        OnInvalidSysExMessageReceived(new InvalidSysExMessageEventArgs(sysExData.ToArray()));
                     }
 
                     int result = AddSysExBuffer();

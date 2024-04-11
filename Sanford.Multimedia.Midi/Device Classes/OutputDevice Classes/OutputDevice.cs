@@ -105,8 +105,12 @@ namespace Sanford.Multimedia.Midi
             }
             else
             {
-                midiOutReset(Handle);
-                midiOutClose(Handle);
+                try
+                {
+                    midiOutReset(Handle);
+                    midiOutClose(Handle);
+                } catch (Exception ex) { }
+
             }
 
             base.Dispose(disposing);

@@ -29,62 +29,53 @@ namespace SequencerDemo
 
         private int oldTempo = 0;
 
-        void RefreshOutputDeviceList()
-        {
-            outputComboBox.Items.Clear();
-            if (OutputDevice.DeviceCount > 0)
-            {
-                for (int i = 0; i < OutputDevice.DeviceCount; i++)
-                {
-                    outputComboBox.Items.Add(OutputDevice.GetDeviceCapabilities(i).name);
-                }
-
-                outputComboBox.SelectedIndex = outputDeviceID;
-            }
-        }
-
-        void RefreshInputDeviceList()
-        {
-            inputComboBox.Items.Clear();
-            if (InputDevice.DeviceCount > 0)
-            {
-                for (int i = 0; i < InputDevice.DeviceCount; i++)
-                {
-                    inputComboBox.Items.Add(InputDevice.GetDeviceCapabilities(i).name);
-                }
-
-                inputComboBox.SelectedIndex = outputDeviceID;
-            }
-        }
-
+        SynthControlForm synthCtrlForm;
 
         public MainForm()
         {
             InitializeComponent();
             pianoControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-
-            ctrlEnvelope.SetUids(102, 103, 104, 105);
-
-            ctrlPulseWidth.SetUids(23, 24, 25);
-            ctrlPhase.SetUids(26, 27, 28);
-            ctrlMixer.SetUids(29, 30, 31);
-
-
-            ctrlMixer.SendData += CtrlConfig_SendData;
-            ctrlPhase.SendData += CtrlConfig_SendData;
-            ctrlPulseWidth.SendData += CtrlConfig_SendData;
-            ctrlEnvelope.SendData += CtrlConfig_SendData;
-
-            lstBoxWaveformOscA.MouseWheel += LstBoxWaveformSel_MouseWheel;
-            lstBoxWaveformOscB.MouseWheel += LstBoxWaveformSel_MouseWheel;
-            lstBoxWaveformOscC.MouseWheel += LstBoxWaveformSel_MouseWheel;
-            lstBoxWaveformOscA.SelectedIndex = 0;
-            lstBoxWaveformOscB.SelectedIndex = 0;
-            lstBoxWaveformOscC.SelectedIndex = 0;
-            lstBoxWaveformOscA.SelectedIndexChanged += lstBoxWaveformOscA_SelectedIndexChanged;
-            lstBoxWaveformOscB.SelectedIndexChanged += lstBoxWaveformOscB_SelectedIndexChanged;
-            lstBoxWaveformOscC.SelectedIndexChanged += lstBoxWaveformOscC_SelectedIndexChanged;
+            synthCtrlForm = new SynthControlForm();
+            synthCtrlForm.SendData += CtrlConfig_SendData;
         }
+
+        void RefreshOutputDeviceList()
+        {
+            
+            outputComboBox.Items.Clear();
+            try
+            {
+                if (OutputDevice.DeviceCount > 0)
+                {
+                    for (int i = 0; i < OutputDevice.DeviceCount; i++)
+                    {
+                        outputComboBox.Items.Add(OutputDevice.GetDeviceCapabilities(i).name);
+                    }
+
+                    //outputComboBox.SelectedIndex = outputDeviceID;
+                }
+            } catch (Exception ex) { AppendRtxtLogLine("RefreshOutputDeviceList:\r\n"+ex.ToString()); }
+        }
+
+        void RefreshInputDeviceList()
+        {
+            inputComboBox.Items.Clear();
+            try
+            {
+                if (InputDevice.DeviceCount > 0)
+                {
+                    for (int i = 0; i < InputDevice.DeviceCount; i++)
+                    {
+                        inputComboBox.Items.Add(InputDevice.GetDeviceCapabilities(i).name);
+                    }
+
+                    //inputComboBox.SelectedIndex = outputDeviceID;
+                }
+            } catch (Exception ex) { AppendRtxtLogLine("RefreshInputDeviceList:\r\n" + ex.ToString()); }
+        }
+
+
+        
         private void outDevice_DataSent(int message)
         {
             if (chkDebugMidiMessageOutput.Checked)
@@ -97,36 +88,7 @@ namespace SequencerDemo
                
         }
 
-        private void lstBoxWaveformOscA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            outDevice.Send(new ChannelMessage(ChannelCommand.Controller, 0x00, 20, lstBoxWaveformOscA.SelectedIndex));
-        }
-
-        private void lstBoxWaveformOscB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            outDevice.Send(new ChannelMessage(ChannelCommand.Controller, 0x00, 21, lstBoxWaveformOscB.SelectedIndex));
-        }
-
-        private void lstBoxWaveformOscC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            outDevice.Send(new ChannelMessage(ChannelCommand.Controller, 0x00, 22, lstBoxWaveformOscC.SelectedIndex));
-        }
-
-        private void LstBoxWaveformSel_MouseWheel(object sender, MouseEventArgs e)
-        {
-            ((HandledMouseEventArgs)e).Handled = true;
-            ListBox lb = (ListBox)sender;
-            if (e.Delta > 0)
-            {
-                if (lb.SelectedIndex != 0)
-                    lb.SelectedIndex--;
-            }
-            else if (e.Delta < 0)
-            {
-                if (lb.SelectedIndex != (lb.Items.Count - 1))
-                    lb.SelectedIndex++;
-            }
-        }
+        
 
         private void CtrlConfig_SendData(int data1, int data2)
         {
@@ -170,10 +132,10 @@ namespace SequencerDemo
                 {
                     inputDevice.StopRecording();
                     inputDevice.Close();
-                    inputDevice.Dispose();
+                    // inputDevice.Dispose();
                 }
             }
-            catch (Exception ex) { AppendRtxtLogLine("TryCloseAndDispose_Prev_Midi_In:\r\n" + ex.Message); }
+            catch (Exception ex) { AppendRtxtLogLine("TryCloseAndDispose_Prev_Midi_In:\r\n" + ex.ToString()); }
         }
         private void TryCloseAndDispose_Prev_Midi_Out()
         {
@@ -182,10 +144,10 @@ namespace SequencerDemo
                 if (outDevice != null)
                 {
                     outDevice.Close();
-                    outDevice.Dispose();
+                    //outDevice.Dispose();
                 }
             }
-            catch (Exception ex) { AppendRtxtLogLine("TryCloseAndDispose_Prev_Midi_Out:\r\n" + ex.Message); }
+            catch (Exception ex) { AppendRtxtLogLine("TryCloseAndDispose_Prev_Midi_Out:\r\n" + ex.ToString()); }
         }
         private void TryCreateNewInputDevice()
         {
@@ -193,21 +155,82 @@ namespace SequencerDemo
             {
                 inputDevice = new InputDevice(inputDeviceID);
                 PrintInputDeviceCap(inputDeviceID);
+                inputDevice.Error += InputDevice_Error;
+                inputDevice.InvalidSysExMessageReceived += InputDevice_InvalidSysExMessageReceived;
                 inputDevice.ChannelMessageReceived += InputDevice_ChannelMessageReceived;
                 inputDevice.SysExMessageReceived += InputDevice_SysExMessageReceived;
                 inputDevice.StartRecording();
+                AppendRtxtLogLine("connected new input dev completed!");
             }
-            catch(Exception ex) { AppendRtxtLogLine("TryCreateNewInputDevice:\r\n" + ex.Message); }
+            catch(Exception ex) { AppendRtxtLogLine("TryCreateNewInputDevice:\r\n" + ex.ToString()); }
         }
+
+        private void InputDevice_SysCommonMessageReceived(object sender, SysCommonMessageEventArgs e)
+        {
+            SysCommonMessage scm = e.Message;
+            rtxtLog.Invoke((MethodInvoker)delegate
+            {
+
+                rtxtLog.AppendText(scm.Data1.ToString() + " " + scm.Data2.ToString() + "\r\n");
+            });
+        }
+
+        private void InputDevice_Error(object sender, Sanford.Multimedia.ErrorEventArgs e)
+        {
+            AppendRtxtLogLine(e.Error.ToString() + "\r\n");
+        }
+
+        private void InputDevice_InvalidShortMessageReceived(object sender, InvalidShortMessageEventArgs e)
+        {
+            rtxtLog.Invoke((MethodInvoker)delegate
+            {
+
+                rtxtLog.AppendText(e.Message.ToString() + "\r\n");
+            });
+        }
+
+        private void InputDevice_ChannelMessageReceived(object sender, ChannelMessageEventArgs e)
+        {
+            ChannelMessage cm = e.Message;
+
+            if (debugMidiMessageInput)
+            {
+                AppendRtxtLogLine(cm.Command.ToString() + " " + cm.Data1.ToString() + " " + cm.Data2.ToString() + "\r\n");
+            }
+            pianoControl1.Send(cm);
+        }
+        private void InputDevice_SysExMessageReceived(object sender, SysExMessageEventArgs e)
+        {
+            AppendRtxtLogLine("InputDevice_SysExMessageReceived");
+            SysExMessage sem = e.Message;
+            byte[] bytes = sem.GetBytes();
+            rtxtLog.Invoke((MethodInvoker)delegate
+            {
+
+                rtxtLog.AppendText(sem.Length.ToString() + " " + GetAsString(bytes) + "\r\n");
+            });
+        }
+
+        private void InputDevice_InvalidSysExMessageReceived(object sender, InvalidSysExMessageEventArgs e)
+        {
+            AppendRtxtLogLine("InputDevice_InvalidSysExMessageReceived:\r\n" + GetAsString((byte[])e.MessageData));
+        }
+
         private void TryCreateNewOutputDevice()
         {
             try
             {
                 outDevice = new OutputDevice(outputDeviceID);
                 outDevice.DataSent += outDevice_DataSent;
+                outDevice.Error += OutDevice_Error;
                 PrintOutputDeviceCap(outputDeviceID);
             }
-            catch (Exception ex) { AppendRtxtLogLine("TryCreateNewOutputDevice:\r\n" + ex.Message); }
+            catch (Exception ex) { AppendRtxtLogLine("TryCreateNewOutputDevice:\r\n" + ex.ToString()); }
+        }
+
+        private void OutDevice_Error(object sender, Sanford.Multimedia.ErrorEventArgs e)
+        {
+            AppendRtxtLogLine("OutDevice_Error:\r\n" + e.Error.ToString());
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -260,7 +283,7 @@ namespace SequencerDemo
                 }
                 catch (Exception ex)
                 {
-                    AppendRtxtLogLine(ex.Message);
+                    AppendRtxtLogLine(ex.ToString());
                 }
             }
         }
@@ -270,16 +293,7 @@ namespace SequencerDemo
             Close();
         }
 
-        private void InputDevice_ChannelMessageReceived(object sender, ChannelMessageEventArgs e)
-        {
-            ChannelMessage cm = e.Message;
-
-            if (debugMidiMessageInput)
-            {
-                AppendRtxtLogLine(cm.Command.ToString() + " " + cm.Data1.ToString() + " " + cm.Data2.ToString() + "\r\n");
-            }
-            pianoControl1.Send(cm);
-        }
+        
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -298,7 +312,7 @@ namespace SequencerDemo
             }
             catch (Exception ex)
             {
-                AppendRtxtLogLine(ex.Message);
+                AppendRtxtLogLine(ex.ToString());
             }
         }
 
@@ -365,7 +379,7 @@ namespace SequencerDemo
                 positionHScrollBar.Value = 1;
                 positionHScrollBar.Maximum = sequence1.GetLength();
                 AppendRtxtLogLine("tempo:" + sequencer1.clock.Tempo);
-                positionHScrollBar.Maximum = sequencer1.clock.Tempo * 2;
+                //positionHScrollBar.Maximum = sequencer1.clock.Tempo * 2;
                 
             }
             else
@@ -447,8 +461,11 @@ namespace SequencerDemo
             }
 
             #endregion
-
-            outDevice.Send(new ChannelMessage(ChannelCommand.NoteOn, 0, e.NoteID, 127));
+            try
+            {
+                outDevice.Send(new ChannelMessage(ChannelCommand.NoteOn, 0, e.NoteID, 127));
+            }
+            catch (Exception ex) { AppendRtxtLogLine(ex.ToString()); }
         }
 
         private void pianoControl1_PianoKeyUp(object sender, PianoKeyEventArgs e)
@@ -465,7 +482,7 @@ namespace SequencerDemo
             {
                 outDevice.Send(new ChannelMessage(ChannelCommand.NoteOff, 0, e.NoteID, 0));
             }
-            catch (Exception ex) { AppendRtxtLogLine(ex.Message); }
+            catch (Exception ex) { AppendRtxtLogLine(ex.ToString()); }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -474,20 +491,6 @@ namespace SequencerDemo
             {
                 positionHScrollBar.Value = sequencer1.Position;
             }
-        }
-
-        private void btnSetEnvelope_Click(object sender, EventArgs e)
-        {
-            outDevice.Send(new ChannelMessage(ChannelCommand.Controller, 0x00, 102, 0)); // attack
-            outDevice.Send(new ChannelMessage(ChannelCommand.Controller, 0x00, 103, 0)); // decay
-            outDevice.Send(new ChannelMessage(ChannelCommand.Controller, 0x00, 104, 127)); // sustain level
-            outDevice.Send(new ChannelMessage(ChannelCommand.Controller, 0x00, 105, 0)); // release
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
         }
 
         private void AppendRtxtLogLine(string text)
@@ -541,44 +544,9 @@ namespace SequencerDemo
             return sb.ToString();
         }
 
-        private void InputDevice_SysExMessageReceived(object sender, SysExMessageEventArgs e)
-        {
-            SysExMessage sem = e.Message;
-            byte[] bytes = sem.GetBytes();
-            rtxtLog.Invoke((MethodInvoker)delegate
-            {
+        
 
-                rtxtLog.AppendText(sem.Length.ToString() + " " + GetAsString(bytes) + "\r\n");
-            });
-        }
-
-        private void InputDevice_SysCommonMessageReceived(object sender, SysCommonMessageEventArgs e)
-        {
-            SysCommonMessage scm = e.Message;
-            rtxtLog.Invoke((MethodInvoker)delegate
-            {
-
-                rtxtLog.AppendText(scm.Data1.ToString() + " " + scm.Data2.ToString() + "\r\n");
-            });
-        }
-
-        private void InputDevice_Error(object sender, Sanford.Multimedia.ErrorEventArgs e)
-        {
-            rtxtLog.Invoke((MethodInvoker)delegate
-            {
-
-                rtxtLog.AppendText(e.Error.ToString() + "\r\n");
-            });
-        }
-
-        private void InputDevice_InvalidShortMessageReceived(object sender, InvalidShortMessageEventArgs e)
-        {
-            rtxtLog.Invoke((MethodInvoker)delegate
-            {
-
-                rtxtLog.AppendText(e.Message.ToString() + "\r\n");
-            });
-        }
+        
 
         private void chkDebugMidiMessageInput_CheckedChanged(object sender, EventArgs e)
         {
@@ -593,11 +561,6 @@ namespace SequencerDemo
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             sequencer1.clock.Tempo = positionHScrollBar.Value;
-        }
-
-        private void uC_Trackbars1_SendData(int uid, int value)
-        {
-
         }
 
         private void outputComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -616,8 +579,11 @@ namespace SequencerDemo
 
         private void refreshMidiDevicesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RefreshInputDeviceList();
-            RefreshOutputDeviceList();
+            try
+            {
+                RefreshInputDeviceList();
+                RefreshOutputDeviceList();
+            } catch (Exception ex) { AppendRtxtLogLine(ex.ToString());}
         }
 
         private void reconnectToCurrentSelectedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -626,6 +592,11 @@ namespace SequencerDemo
             TryCreateNewOutputDevice();
             TryCloseAndDispose_Prev_Midi_In();
             TryCreateNewInputDevice();
+        }
+
+        private void btnShowSynthCtrl_Click(object sender, EventArgs e)
+        {
+            synthCtrlForm.Show();
         }
     }
 }

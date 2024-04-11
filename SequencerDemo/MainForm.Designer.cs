@@ -47,6 +47,8 @@ namespace SequencerDemo
             this.outputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outputComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.refreshMidiDevicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reconnectToCurrentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMidiFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -55,29 +57,18 @@ namespace SequencerDemo
             this.sequencer1 = new Sanford.Multimedia.Midi.Sequencer();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.rtxtLog = new System.Windows.Forms.RichTextBox();
-            this.btnSetEnvelope = new System.Windows.Forms.Button();
-            this.lstBoxWaveformOscA = new System.Windows.Forms.ListBox();
-            this.lstBoxWaveformOscB = new System.Windows.Forms.ListBox();
-            this.lstBoxWaveformOscC = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.chkDebugMidiMessageInput = new System.Windows.Forms.CheckBox();
             this.chkDebugMidiMessageOutput = new System.Windows.Forms.CheckBox();
-            this.uC_Trackbars1 = new SequencerDemo.UC_Trackbars();
-            this.ctrlEnvelope = new SequencerDemo.UC_envelope();
-            this.ctrlPhase = new SequencerDemo.UC_3osc_sliders();
-            this.ctrlPulseWidth = new SequencerDemo.UC_3osc_sliders();
-            this.ctrlMixer = new SequencerDemo.UC_3osc_sliders();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.reconnectToCurrentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnShowSynthCtrl = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(86, 79);
+            this.stopButton.Location = new System.Drawing.Point(12, 67);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(75, 23);
             this.stopButton.TabIndex = 0;
@@ -87,7 +78,7 @@ namespace SequencerDemo
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(185, 79);
+            this.startButton.Location = new System.Drawing.Point(93, 67);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(75, 23);
             this.startButton.TabIndex = 1;
@@ -97,7 +88,7 @@ namespace SequencerDemo
             // 
             // continueButton
             // 
-            this.continueButton.Location = new System.Drawing.Point(286, 79);
+            this.continueButton.Location = new System.Drawing.Point(174, 67);
             this.continueButton.Name = "continueButton";
             this.continueButton.Size = new System.Drawing.Size(75, 23);
             this.continueButton.TabIndex = 2;
@@ -107,11 +98,10 @@ namespace SequencerDemo
             // 
             // positionHScrollBar
             // 
-            this.positionHScrollBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.positionHScrollBar.Location = new System.Drawing.Point(12, 46);
+            this.positionHScrollBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.positionHScrollBar.Location = new System.Drawing.Point(0, 0);
             this.positionHScrollBar.Name = "positionHScrollBar";
-            this.positionHScrollBar.Size = new System.Drawing.Size(1214, 18);
+            this.positionHScrollBar.Size = new System.Drawing.Size(1210, 23);
             this.positionHScrollBar.TabIndex = 3;
             this.positionHScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.positionHScrollBar_Scroll);
             // 
@@ -208,6 +198,19 @@ namespace SequencerDemo
             this.refreshMidiDevicesToolStripMenuItem.Text = "Refresh Midi devices";
             this.refreshMidiDevicesToolStripMenuItem.Click += new System.EventHandler(this.refreshMidiDevicesToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(22, 23);
+            this.toolStripMenuItem1.Text = "|";
+            // 
+            // reconnectToCurrentSelectedToolStripMenuItem
+            // 
+            this.reconnectToCurrentSelectedToolStripMenuItem.Name = "reconnectToCurrentSelectedToolStripMenuItem";
+            this.reconnectToCurrentSelectedToolStripMenuItem.Size = new System.Drawing.Size(176, 23);
+            this.reconnectToCurrentSelectedToolStripMenuItem.Text = "Reconnect to current selected";
+            this.reconnectToCurrentSelectedToolStripMenuItem.Click += new System.EventHandler(this.reconnectToCurrentSelectedToolStripMenuItem_Click);
+            // 
             // openMidiFileDialog
             // 
             this.openMidiFileDialog.DefaultExt = "mid";
@@ -234,11 +237,11 @@ namespace SequencerDemo
             this.pianoControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pianoControl1.HighNoteID = 109;
-            this.pianoControl1.Location = new System.Drawing.Point(12, 120);
+            this.pianoControl1.Location = new System.Drawing.Point(12, 96);
             this.pianoControl1.LowNoteID = 21;
             this.pianoControl1.Name = "pianoControl1";
             this.pianoControl1.NoteOnColor = System.Drawing.Color.SkyBlue;
-            this.pianoControl1.Size = new System.Drawing.Size(1214, 48);
+            this.pianoControl1.Size = new System.Drawing.Size(1214, 72);
             this.pianoControl1.TabIndex = 5;
             this.pianoControl1.Text = "pianoControl1";
             this.pianoControl1.PianoKeyDown += new System.EventHandler<Sanford.Multimedia.Midi.UI.PianoKeyEventArgs>(this.pianoControl1_PianoKeyDown);
@@ -265,112 +268,19 @@ namespace SequencerDemo
             // 
             // rtxtLog
             // 
-            this.rtxtLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.rtxtLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtLog.Location = new System.Drawing.Point(16, 178);
             this.rtxtLog.Name = "rtxtLog";
-            this.rtxtLog.Size = new System.Drawing.Size(214, 283);
+            this.rtxtLog.Size = new System.Drawing.Size(1196, 283);
             this.rtxtLog.TabIndex = 7;
             this.rtxtLog.Text = "";
-            // 
-            // btnSetEnvelope
-            // 
-            this.btnSetEnvelope.Location = new System.Drawing.Point(448, 77);
-            this.btnSetEnvelope.Name = "btnSetEnvelope";
-            this.btnSetEnvelope.Size = new System.Drawing.Size(75, 23);
-            this.btnSetEnvelope.TabIndex = 8;
-            this.btnSetEnvelope.Text = "setEnvelope";
-            this.btnSetEnvelope.UseVisualStyleBackColor = true;
-            this.btnSetEnvelope.Click += new System.EventHandler(this.btnSetEnvelope_Click);
-            // 
-            // lstBoxWaveformOscA
-            // 
-            this.lstBoxWaveformOscA.FormattingEnabled = true;
-            this.lstBoxWaveformOscA.Items.AddRange(new object[] {
-            "SINE",
-            "SAWTOOTH",
-            "SQUARE",
-            "TRIANGLE",
-            "ARBITRARY",
-            "PULSE",
-            "SAW REVERSE",
-            "SAMPLE HOLD",
-            "VAR. TRIANGLE"});
-            this.lstBoxWaveformOscA.Location = new System.Drawing.Point(913, 188);
-            this.lstBoxWaveformOscA.Name = "lstBoxWaveformOscA";
-            this.lstBoxWaveformOscA.Size = new System.Drawing.Size(96, 121);
-            this.lstBoxWaveformOscA.TabIndex = 12;
-            this.lstBoxWaveformOscA.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // lstBoxWaveformOscB
-            // 
-            this.lstBoxWaveformOscB.FormattingEnabled = true;
-            this.lstBoxWaveformOscB.Items.AddRange(new object[] {
-            "SINE",
-            "SAWTOOTH",
-            "SQUARE",
-            "TRIANGLE",
-            "ARBITRARY",
-            "PULSE",
-            "SAW REVERSE",
-            "SAMPLE HOLD",
-            "VAR. TRIANGLE"});
-            this.lstBoxWaveformOscB.Location = new System.Drawing.Point(1015, 189);
-            this.lstBoxWaveformOscB.Name = "lstBoxWaveformOscB";
-            this.lstBoxWaveformOscB.Size = new System.Drawing.Size(92, 121);
-            this.lstBoxWaveformOscB.TabIndex = 12;
-            this.lstBoxWaveformOscB.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // lstBoxWaveformOscC
-            // 
-            this.lstBoxWaveformOscC.FormattingEnabled = true;
-            this.lstBoxWaveformOscC.Items.AddRange(new object[] {
-            "SINE",
-            "SAWTOOTH",
-            "SQUARE",
-            "TRIANGLE",
-            "ARBITRARY",
-            "PULSE",
-            "SAW REVERSE",
-            "SAMPLE HOLD",
-            "VAR. TRIANGLE"});
-            this.lstBoxWaveformOscC.Location = new System.Drawing.Point(1113, 190);
-            this.lstBoxWaveformOscC.Name = "lstBoxWaveformOscC";
-            this.lstBoxWaveformOscC.Size = new System.Drawing.Size(92, 121);
-            this.lstBoxWaveformOscC.TabIndex = 12;
-            this.lstBoxWaveformOscC.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1138, 174);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "OSC-C";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1042, 174);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "OSC-B";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(942, 174);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "OSC-A";
             // 
             // chkDebugMidiMessageInput
             // 
             this.chkDebugMidiMessageInput.AutoSize = true;
-            this.chkDebugMidiMessageInput.Location = new System.Drawing.Point(573, 87);
+            this.chkDebugMidiMessageInput.Location = new System.Drawing.Point(272, 71);
             this.chkDebugMidiMessageInput.Name = "chkDebugMidiMessageInput";
             this.chkDebugMidiMessageInput.Size = new System.Drawing.Size(142, 17);
             this.chkDebugMidiMessageInput.TabIndex = 16;
@@ -381,7 +291,7 @@ namespace SequencerDemo
             // chkDebugMidiMessageOutput
             // 
             this.chkDebugMidiMessageOutput.AutoSize = true;
-            this.chkDebugMidiMessageOutput.Location = new System.Drawing.Point(739, 82);
+            this.chkDebugMidiMessageOutput.Location = new System.Drawing.Point(420, 71);
             this.chkDebugMidiMessageOutput.Name = "chkDebugMidiMessageOutput";
             this.chkDebugMidiMessageOutput.Size = new System.Drawing.Size(150, 17);
             this.chkDebugMidiMessageOutput.TabIndex = 17;
@@ -389,110 +299,38 @@ namespace SequencerDemo
             this.chkDebugMidiMessageOutput.UseVisualStyleBackColor = true;
             this.chkDebugMidiMessageOutput.CheckedChanged += new System.EventHandler(this.chkDebugMidiMessageOutput_CheckedChanged);
             // 
-            // uC_Trackbars1
+            // btnShowSynthCtrl
             // 
-            this.uC_Trackbars1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uC_Trackbars1.Location = new System.Drawing.Point(1015, 316);
-            this.uC_Trackbars1.Name = "uC_Trackbars1";
-            this.uC_Trackbars1.Size = new System.Drawing.Size(162, 151);
-            this.uC_Trackbars1.TabIndex = 18;
-            this.uC_Trackbars1.TitleLabel = "Mixer";
-            this.uC_Trackbars1.Trackbar_Count = 3;
-            this.uC_Trackbars1.TrackBar_MaxValues = new int[] {
-        100,
-        100,
-        100};
-            this.uC_Trackbars1.TrackBar_MinValues = new int[] {
-        0,
-        0,
-        0};
-            this.uC_Trackbars1.Trackbar_Padding = 0;
-            this.uC_Trackbars1.Trackbar_Titles = new string[] {
-        "OSC-A",
-        "OSC-B",
-        "OSC-C"};
-            this.uC_Trackbars1.TrackBar_Uids = new int[] {
-        -1,
-        -1,
-        -1};
-            this.uC_Trackbars1.TrackBar_valueLblMult = new float[] {
-        1F,
-        1F,
-        1F};
-            this.uC_Trackbars1.SendData += new SequencerDemo.UC_Trackbars.SendHandler(this.uC_Trackbars1_SendData);
+            this.btnShowSynthCtrl.Location = new System.Drawing.Point(576, 62);
+            this.btnShowSynthCtrl.Name = "btnShowSynthCtrl";
+            this.btnShowSynthCtrl.Size = new System.Drawing.Size(103, 32);
+            this.btnShowSynthCtrl.TabIndex = 19;
+            this.btnShowSynthCtrl.Text = "Open Synth Ctrl";
+            this.btnShowSynthCtrl.UseVisualStyleBackColor = true;
+            this.btnShowSynthCtrl.Click += new System.EventHandler(this.btnShowSynthCtrl_Click);
             // 
-            // ctrlEnvelope
+            // panel1
             // 
-            this.ctrlEnvelope.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrlEnvelope.Location = new System.Drawing.Point(704, 174);
-            this.ctrlEnvelope.Name = "ctrlEnvelope";
-            this.ctrlEnvelope.Size = new System.Drawing.Size(203, 283);
-            this.ctrlEnvelope.TabIndex = 10;
-            this.ctrlEnvelope.TitleLabel = "Envelope";
-            // 
-            // ctrlPhase
-            // 
-            this.ctrlPhase.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrlPhase.Location = new System.Drawing.Point(548, 174);
-            this.ctrlPhase.Name = "ctrlPhase";
-            this.ctrlPhase.Size = new System.Drawing.Size(150, 283);
-            this.ctrlPhase.TabIndex = 9;
-            this.ctrlPhase.TitleLabel = "Phase";
-            // 
-            // ctrlPulseWidth
-            // 
-            this.ctrlPulseWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrlPulseWidth.Location = new System.Drawing.Point(392, 174);
-            this.ctrlPulseWidth.Name = "ctrlPulseWidth";
-            this.ctrlPulseWidth.Size = new System.Drawing.Size(150, 283);
-            this.ctrlPulseWidth.TabIndex = 9;
-            this.ctrlPulseWidth.TitleLabel = "Pulse width";
-            // 
-            // ctrlMixer
-            // 
-            this.ctrlMixer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ctrlMixer.Location = new System.Drawing.Point(236, 174);
-            this.ctrlMixer.Name = "ctrlMixer";
-            this.ctrlMixer.Size = new System.Drawing.Size(150, 283);
-            this.ctrlMixer.TabIndex = 9;
-            this.ctrlMixer.TitleLabel = "Mixer";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(22, 23);
-            this.toolStripMenuItem1.Text = "|";
-            // 
-            // reconnectToCurrentSelectedToolStripMenuItem
-            // 
-            this.reconnectToCurrentSelectedToolStripMenuItem.Name = "reconnectToCurrentSelectedToolStripMenuItem";
-            this.reconnectToCurrentSelectedToolStripMenuItem.Size = new System.Drawing.Size(176, 23);
-            this.reconnectToCurrentSelectedToolStripMenuItem.Text = "Reconnect to current selected";
-            this.reconnectToCurrentSelectedToolStripMenuItem.Click += new System.EventHandler(this.reconnectToCurrentSelectedToolStripMenuItem_Click);
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.positionHScrollBar);
+            this.panel1.Location = new System.Drawing.Point(12, 34);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1214, 27);
+            this.panel1.TabIndex = 20;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1238, 495);
-            this.Controls.Add(this.uC_Trackbars1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnShowSynthCtrl);
             this.Controls.Add(this.chkDebugMidiMessageOutput);
             this.Controls.Add(this.chkDebugMidiMessageInput);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstBoxWaveformOscC);
-            this.Controls.Add(this.lstBoxWaveformOscB);
-            this.Controls.Add(this.lstBoxWaveformOscA);
-            this.Controls.Add(this.ctrlEnvelope);
-            this.Controls.Add(this.ctrlPhase);
-            this.Controls.Add(this.ctrlPulseWidth);
-            this.Controls.Add(this.ctrlMixer);
-            this.Controls.Add(this.btnSetEnvelope);
             this.Controls.Add(this.rtxtLog);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pianoControl1);
-            this.Controls.Add(this.positionHScrollBar);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.stopButton);
@@ -505,6 +343,7 @@ namespace SequencerDemo
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,20 +370,8 @@ namespace SequencerDemo
         private Sequencer sequencer1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.RichTextBox rtxtLog;
-        private System.Windows.Forms.Button btnSetEnvelope;
-        private UC_3osc_sliders ctrlMixer;
-        private UC_3osc_sliders ctrlPulseWidth;
-        private UC_3osc_sliders ctrlPhase;
-        private UC_envelope ctrlEnvelope;
-        private System.Windows.Forms.ListBox lstBoxWaveformOscA;
-        private System.Windows.Forms.ListBox lstBoxWaveformOscB;
-        private System.Windows.Forms.ListBox lstBoxWaveformOscC;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkDebugMidiMessageInput;
         private System.Windows.Forms.CheckBox chkDebugMidiMessageOutput;
-        private UC_Trackbars uC_Trackbars1;
         private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox inputComboBox;
         private System.Windows.Forms.ToolStripMenuItem outputToolStripMenuItem;
@@ -552,6 +379,8 @@ namespace SequencerDemo
         private System.Windows.Forms.ToolStripMenuItem refreshMidiDevicesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem reconnectToCurrentSelectedToolStripMenuItem;
+        private System.Windows.Forms.Button btnShowSynthCtrl;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

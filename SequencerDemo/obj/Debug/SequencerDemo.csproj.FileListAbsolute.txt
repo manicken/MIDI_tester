@@ -49,7 +49,6 @@ G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Multimedia.Midi.pdb
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.csproj.AssemblyReference.cache
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.UC_Trackbar.resources
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.UC_Trackbars.resources
-G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.UC_envelope.resources
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.AboutDialog.resources
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.Properties.Resources.resources
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.csproj.GenerateResource.cache
@@ -58,3 +57,4 @@ G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.csproj.CopyComplete
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.exe
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.pdb
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.MainForm.resources
+G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.SynthControlForm.resources

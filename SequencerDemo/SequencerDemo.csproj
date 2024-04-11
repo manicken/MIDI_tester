@@ -67,11 +67,11 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,20 +85,20 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_Trackbar.Designer.cs">
-	  <DependentUpon>UC_Trackbar.cs</DependentUpon>
-	</Compile>
-	<EmbeddedResource Include="UC_Trackbar.resx">
-	  <DependentUpon>UC_Trackbar.cs</DependentUpon>
-	</EmbeddedResource>
+      <DependentUpon>UC_Trackbar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UC_Trackbar.resx">
+      <DependentUpon>UC_Trackbar.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="UC_Trackbars.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_Trackbars.Designer.cs">
-	  <DependentUpon>UC_Trackbars.cs</DependentUpon>
-	</Compile>
-	<EmbeddedResource Include="UC_Trackbars.resx">
-	  <DependentUpon>UC_Trackbars.cs</DependentUpon>
-	</EmbeddedResource>
+      <DependentUpon>UC_Trackbars.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UC_Trackbars.resx">
+      <DependentUpon>UC_Trackbars.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="UC_envelope.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,8 +112,8 @@
       <SubType>Designer</SubType>
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -126,7 +126,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

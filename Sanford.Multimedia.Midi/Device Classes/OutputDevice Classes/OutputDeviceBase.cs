@@ -239,18 +239,20 @@ namespace Sanford.Multimedia.Midi
 
         protected void Send(int message)
         {
-            if (DataSent != null)
-                DataSent(message);
+ 
+                if (DataSent != null)
+                    DataSent(message);
 
-            lock(lockObject)
-            {
-                int result = midiOutShortMsg(Handle, message);
-
-                if(result != MidiDeviceException.MMSYSERR_NOERROR)
+                lock (lockObject)
                 {
-                    throw new OutputDeviceException(result);
+                    int result = midiOutShortMsg(Handle, message);
+
+                    if (result != MidiDeviceException.MMSYSERR_NOERROR)
+                    {
+                        throw new OutputDeviceException(result);
+                    }
                 }
-            }
+
         }
 
         public static MidiOutCaps GetDeviceCapabilities(int deviceID)

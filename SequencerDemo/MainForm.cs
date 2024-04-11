@@ -10,7 +10,7 @@ using Sanford.Multimedia.Midi.UI;
 
 namespace SequencerDemo
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private bool scrolling = false;
 
@@ -21,17 +21,44 @@ namespace SequencerDemo
         private OutputDevice outDevice;
         private InputDevice inputDevice;
 
-        private int outDeviceID = 0;
-        private int intDeviceID = 0;
-
-        private OutputDeviceDialog outDialog = new OutputDeviceDialog();
+        private int outputDeviceID = 0;
+        private int inputDeviceID = 0;
 
         private bool debugMidiMessageInput = false;
         private bool debugMidiMessageOutput = false;
 
         private int oldTempo = 0;
 
-        public Form1()
+        void RefreshOutputDeviceList()
+        {
+            outputComboBox.Items.Clear();
+            if (OutputDevice.DeviceCount > 0)
+            {
+                for (int i = 0; i < OutputDevice.DeviceCount; i++)
+                {
+                    outputComboBox.Items.Add(OutputDevice.GetDeviceCapabilities(i).name);
+                }
+
+                outputComboBox.SelectedIndex = outputDeviceID;
+            }
+        }
+
+        void RefreshInputDeviceList()
+        {
+            inputComboBox.Items.Clear();
+            if (InputDevice.DeviceCount > 0)
+            {
+                for (int i = 0; i < InputDevice.DeviceCount; i++)
+                {
+                    inputComboBox.Items.Add(InputDevice.GetDeviceCapabilities(i).name);
+                }
+
+                inputComboBox.SelectedIndex = outputDeviceID;
+            }
+        }
+
+
+        public MainForm()
         {
             InitializeComponent();
             pianoControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -112,29 +139,12 @@ namespace SequencerDemo
 
             if (OutputDevice.DeviceCount == 0)
             {
-                MessageBox.Show("No MIDI output devices available.", "Error!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
-
-                Close();
+                AppendRtxtLogLine("Information: No MIDI output devices available.");
             }
             else
             {
-                try
-                {
-                    outDevice = new OutputDevice(outDeviceID);
-                    outDevice.DataSent += outDevice_DataSent;
-
-                    sequence1.LoadProgressChanged += HandleLoadProgressChanged;
-                    sequence1.LoadCompleted += HandleLoadCompleted;
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
-
-                    Close();
-                }
+                RefreshOutputDeviceList();
+                TryCreateNewOutputDevice();
             }
             if (InputDevice.DeviceCount == 0)
             {
@@ -142,35 +152,62 @@ namespace SequencerDemo
             }
             else
             {
-                try
-                {
-                    CreateNewInputDevice();
-
-                    sequence1.LoadProgressChanged += HandleLoadProgressChanged;
-                    sequence1.LoadCompleted += HandleLoadCompleted;
-                }
-                catch (Exception ex)
-                {
-                    AppendRtxtLogLine("Error:\r\n" + ex.Message);
-                }
+                RefreshInputDeviceList();
+                TryCreateNewInputDevice();
             }
+
+            sequence1.LoadProgressChanged += HandleLoadProgressChanged;
+            sequence1.LoadCompleted += HandleLoadCompleted;
 
             base.OnLoad(e);
         }
 
-        private void CreateNewInputDevice()
+        private void TryCloseAndDispose_Prev_Midi_In()
         {
-            if (inputDevice != null)
+            try
             {
-                inputDevice.StopRecording();
-                inputDevice.Close();
-                inputDevice.Dispose();
+                if (inputDevice != null)
+                {
+                    inputDevice.StopRecording();
+                    inputDevice.Close();
+                    inputDevice.Dispose();
+                }
             }
-            inputDevice = new InputDevice(intDeviceID);
-            PrintInputDeviceCap(intDeviceID);
-            inputDevice.ChannelMessageReceived += InputDevice_ChannelMessageReceived;
-            inputDevice.SysExMessageReceived += InputDevice_SysExMessageReceived;
-            inputDevice.StartRecording();
+            catch (Exception ex) { AppendRtxtLogLine("TryCloseAndDispose_Prev_Midi_In:\r\n" + ex.Message); }
+        }
+        private void TryCloseAndDispose_Prev_Midi_Out()
+        {
+            try
+            {
+                if (outDevice != null)
+                {
+                    outDevice.Close();
+                    outDevice.Dispose();
+                }
+            }
+            catch (Exception ex) { AppendRtxtLogLine("TryCloseAndDispose_Prev_Midi_Out:\r\n" + ex.Message); }
+        }
+        private void TryCreateNewInputDevice()
+        {
+            try
+            {
+                inputDevice = new InputDevice(inputDeviceID);
+                PrintInputDeviceCap(inputDeviceID);
+                inputDevice.ChannelMessageReceived += InputDevice_ChannelMessageReceived;
+                inputDevice.SysExMessageReceived += InputDevice_SysExMessageReceived;
+                inputDevice.StartRecording();
+            }
+            catch(Exception ex) { AppendRtxtLogLine("TryCreateNewInputDevice:\r\n" + ex.Message); }
+        }
+        private void TryCreateNewOutputDevice()
+        {
+            try
+            {
+                outDevice = new OutputDevice(outputDeviceID);
+                outDevice.DataSent += outDevice_DataSent;
+                PrintOutputDeviceCap(outputDeviceID);
+            }
+            catch (Exception ex) { AppendRtxtLogLine("TryCreateNewOutputDevice:\r\n" + ex.Message); }
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -198,19 +235,8 @@ namespace SequencerDemo
         {
 
             sequence1.Dispose();
-
-            if (outDevice != null)
-            {
-                outDevice.Close();
-                outDevice.Dispose();
-            }
-            if (inputDevice != null)
-            {
-                inputDevice.StopRecording();
-                inputDevice.Close();
-                inputDevice.Dispose();
-            }
-            outDialog.Dispose();
+            TryCloseAndDispose_Prev_Midi_Out();
+            TryCloseAndDispose_Prev_Midi_In();
 
             base.OnClosed(e);
         }
@@ -234,7 +260,7 @@ namespace SequencerDemo
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    AppendRtxtLogLine(ex.Message);
                 }
             }
         }
@@ -244,33 +270,13 @@ namespace SequencerDemo
             Close();
         }
 
-        private void outputDeviceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (outDialog.ShowDialog() == DialogResult.OK)
-            {
-                if (outDevice != null)
-                {
-                    outDevice.Close();
-                    outDevice.Dispose();
-
-                }
-                outDeviceID = outDialog.OutputDeviceID;
-                outDevice = new OutputDevice(outDeviceID);
-                PrintOutputDeviceCap(outDeviceID);
-            }
-        }
-
         private void InputDevice_ChannelMessageReceived(object sender, ChannelMessageEventArgs e)
         {
             ChannelMessage cm = e.Message;
 
             if (debugMidiMessageInput)
             {
-                rtxtLog.Invoke((MethodInvoker)delegate
-                {
-
-                    rtxtLog.AppendText(cm.Command.ToString() + " " + cm.Data1.ToString() + " " + cm.Data2.ToString() + "\r\n");
-                });
+                AppendRtxtLogLine(cm.Command.ToString() + " " + cm.Data1.ToString() + " " + cm.Data2.ToString() + "\r\n");
             }
             pianoControl1.Send(cm);
         }
@@ -292,7 +298,7 @@ namespace SequencerDemo
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                AppendRtxtLogLine(ex.Message);
             }
         }
 
@@ -307,7 +313,7 @@ namespace SequencerDemo
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                AppendRtxtLogLine(ex.Message);
             }
         }
 
@@ -321,7 +327,7 @@ namespace SequencerDemo
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                AppendRtxtLogLine(ex.Message);
             }
         }
 
@@ -364,7 +370,7 @@ namespace SequencerDemo
             }
             else
             {
-                MessageBox.Show(e.Error.Message);
+                AppendRtxtLogLine(e.Error.Message);
             }
         }
 
@@ -384,27 +390,23 @@ namespace SequencerDemo
             }
             catch
             {
-                outDevice = new OutputDevice(outDeviceID);
+                outDevice = new OutputDevice(outputDeviceID);
                 outDevice.Send(cm);
             }
             pianoControl1.Send(e.Message);
             if (oldTempo != sequencer1.clock.Tempo)
             {
                 oldTempo = sequencer1.clock.Tempo;
-                positionHScrollBar.Invoke((MethodInvoker)delegate
+                /*positionHScrollBar.Invoke((MethodInvoker)delegate
                 {
 
                     positionHScrollBar.Value = sequencer1.clock.Tempo;
-                });
+                });*/
                 AppendRtxtLogLine("tempo:" + sequencer1.clock.Tempo);
             }
             if (debugMidiMessageOutput)
             {
-                rtxtLog.Invoke((MethodInvoker)delegate
-                {
-
-                    rtxtLog.AppendText(cm.Command.ToString() + " " + cm.Data1.ToString() + " " + cm.Data2.ToString() + "\r\n");
-                });
+                AppendRtxtLogLine(cm.Command.ToString() + " " + cm.Data1.ToString() + " " + cm.Data2.ToString() + "\r\n");
             }
         }
 
@@ -459,8 +461,11 @@ namespace SequencerDemo
             }
 
             #endregion
-
-            outDevice.Send(new ChannelMessage(ChannelCommand.NoteOff, 0, e.NoteID, 0));
+            try
+            {
+                outDevice.Send(new ChannelMessage(ChannelCommand.NoteOff, 0, e.NoteID, 0));
+            }
+            catch (Exception ex) { AppendRtxtLogLine(ex.Message); }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -517,17 +522,6 @@ namespace SequencerDemo
             AppendRtxtLogLine("technology:" + moc.technology.ToString());
             AppendRtxtLogLine("voices: " + moc.voices.ToString());
             AppendRtxtLogLine("channelMask: " + moc.channelMask.ToString());
-        }
-
-        private void inputDeviceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            InputDeviceDialog inputDeviceDialog = new InputDeviceDialog();
-            if (inputDeviceDialog.ShowDialog() == DialogResult.OK)
-            {
-                intDeviceID = inputDeviceDialog.InputDeviceID;
-                CreateNewInputDevice();
-
-            }
         }
 
         private string GetAsString(byte[] bytes)
@@ -604,6 +598,34 @@ namespace SequencerDemo
         private void uC_Trackbars1_SendData(int uid, int value)
         {
 
+        }
+
+        private void outputComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            outputDeviceID = outputComboBox.SelectedIndex;
+            TryCloseAndDispose_Prev_Midi_Out();
+            TryCreateNewOutputDevice();
+        }
+
+        private void inputComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            inputDeviceID = inputComboBox.SelectedIndex;
+            TryCloseAndDispose_Prev_Midi_In();
+            TryCreateNewInputDevice();
+        }
+
+        private void refreshMidiDevicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefreshInputDeviceList();
+            RefreshOutputDeviceList();
+        }
+
+        private void reconnectToCurrentSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TryCloseAndDispose_Prev_Midi_Out();
+            TryCreateNewOutputDevice();
+            TryCloseAndDispose_Prev_Midi_In();
+            TryCreateNewInputDevice();
         }
     }
 }

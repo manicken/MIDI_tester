@@ -2,7 +2,7 @@ using Sanford.Multimedia.Midi;
 
 namespace SequencerDemo
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,11 +40,13 @@ namespace SequencerDemo
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mIDIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outputDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inputDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.outputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.refreshMidiDevicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMidiFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -67,6 +69,8 @@ namespace SequencerDemo
             this.ctrlPhase = new SequencerDemo.UC_3osc_sliders();
             this.ctrlPulseWidth = new SequencerDemo.UC_3osc_sliders();
             this.ctrlMixer = new SequencerDemo.UC_3osc_sliders();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reconnectToCurrentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -115,11 +119,17 @@ namespace SequencerDemo
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.mIDIToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.inputToolStripMenuItem,
+            this.inputComboBox,
+            this.outputToolStripMenuItem,
+            this.outputComboBox,
+            this.refreshMidiDevicesToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.reconnectToCurrentSelectedToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1238, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1238, 27);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,7 +140,7 @@ namespace SequencerDemo
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 23);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
@@ -152,35 +162,12 @@ namespace SequencerDemo
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // mIDIToolStripMenuItem
-            // 
-            this.mIDIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.outputDeviceToolStripMenuItem,
-            this.inputDeviceToolStripMenuItem});
-            this.mIDIToolStripMenuItem.Name = "mIDIToolStripMenuItem";
-            this.mIDIToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.mIDIToolStripMenuItem.Text = "&MIDI";
-            // 
-            // outputDeviceToolStripMenuItem
-            // 
-            this.outputDeviceToolStripMenuItem.Name = "outputDeviceToolStripMenuItem";
-            this.outputDeviceToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.outputDeviceToolStripMenuItem.Text = "Output Device...";
-            this.outputDeviceToolStripMenuItem.Click += new System.EventHandler(this.outputDeviceToolStripMenuItem_Click);
-            // 
-            // inputDeviceToolStripMenuItem
-            // 
-            this.inputDeviceToolStripMenuItem.Name = "inputDeviceToolStripMenuItem";
-            this.inputDeviceToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.inputDeviceToolStripMenuItem.Text = "Input Device";
-            this.inputDeviceToolStripMenuItem.Click += new System.EventHandler(this.inputDeviceToolStripMenuItem_Click);
-            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
@@ -189,6 +176,37 @@ namespace SequencerDemo
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // inputToolStripMenuItem
+            // 
+            this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
+            this.inputToolStripMenuItem.Size = new System.Drawing.Size(50, 23);
+            this.inputToolStripMenuItem.Text = "Input:";
+            // 
+            // inputComboBox
+            // 
+            this.inputComboBox.Name = "inputComboBox";
+            this.inputComboBox.Size = new System.Drawing.Size(200, 23);
+            this.inputComboBox.SelectedIndexChanged += new System.EventHandler(this.inputComboBox_SelectedIndexChanged);
+            // 
+            // outputToolStripMenuItem
+            // 
+            this.outputToolStripMenuItem.Name = "outputToolStripMenuItem";
+            this.outputToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
+            this.outputToolStripMenuItem.Text = "Output";
+            // 
+            // outputComboBox
+            // 
+            this.outputComboBox.Name = "outputComboBox";
+            this.outputComboBox.Size = new System.Drawing.Size(200, 23);
+            this.outputComboBox.SelectedIndexChanged += new System.EventHandler(this.outputComboBox_SelectedIndexChanged);
+            // 
+            // refreshMidiDevicesToolStripMenuItem
+            // 
+            this.refreshMidiDevicesToolStripMenuItem.Name = "refreshMidiDevicesToolStripMenuItem";
+            this.refreshMidiDevicesToolStripMenuItem.Size = new System.Drawing.Size(127, 23);
+            this.refreshMidiDevicesToolStripMenuItem.Text = "Refresh Midi devices";
+            this.refreshMidiDevicesToolStripMenuItem.Click += new System.EventHandler(this.refreshMidiDevicesToolStripMenuItem_Click);
             // 
             // openMidiFileDialog
             // 
@@ -439,7 +457,20 @@ namespace SequencerDemo
             this.ctrlMixer.TabIndex = 9;
             this.ctrlMixer.TitleLabel = "Mixer";
             // 
-            // Form1
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(22, 23);
+            this.toolStripMenuItem1.Text = "|";
+            // 
+            // reconnectToCurrentSelectedToolStripMenuItem
+            // 
+            this.reconnectToCurrentSelectedToolStripMenuItem.Name = "reconnectToCurrentSelectedToolStripMenuItem";
+            this.reconnectToCurrentSelectedToolStripMenuItem.Size = new System.Drawing.Size(176, 23);
+            this.reconnectToCurrentSelectedToolStripMenuItem.Text = "Reconnect to current selected";
+            this.reconnectToCurrentSelectedToolStripMenuItem.Click += new System.EventHandler(this.reconnectToCurrentSelectedToolStripMenuItem_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -468,7 +499,7 @@ namespace SequencerDemo
             this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Sequencer Demo";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -496,8 +527,6 @@ namespace SequencerDemo
         private Sanford.Multimedia.Midi.UI.PianoControl pianoControl1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
-        private System.Windows.Forms.ToolStripMenuItem mIDIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem outputDeviceToolStripMenuItem;
         private Sequence sequence1;
         private Sequencer sequencer1;
         private System.Windows.Forms.Timer timer1;
@@ -513,10 +542,16 @@ namespace SequencerDemo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem inputDeviceToolStripMenuItem;
         private System.Windows.Forms.CheckBox chkDebugMidiMessageInput;
         private System.Windows.Forms.CheckBox chkDebugMidiMessageOutput;
         private UC_Trackbars uC_Trackbars1;
+        private System.Windows.Forms.ToolStripMenuItem inputToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox inputComboBox;
+        private System.Windows.Forms.ToolStripMenuItem outputToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox outputComboBox;
+        private System.Windows.Forms.ToolStripMenuItem refreshMidiDevicesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem reconnectToCurrentSelectedToolStripMenuItem;
     }
 }
 

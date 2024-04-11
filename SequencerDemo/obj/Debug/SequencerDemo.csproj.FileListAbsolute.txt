@@ -40,11 +40,7 @@ G:\_git\csharpmiditoolkitv5_demo_my_version\SequencerDemo\obj\Debug\SequencerDem
 G:\_git\MIDI_tester\SequencerDemo\bin\Debug\SequencerDemo.exe.config
 G:\_git\MIDI_tester\SequencerDemo\bin\Debug\SequencerDemo.exe
 G:\_git\MIDI_tester\SequencerDemo\bin\Debug\SequencerDemo.pdb
-G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Collections.dll
-G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Multimedia.dll
 G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Multimedia.Midi.dll
-G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Multimedia.Timers.dll
-G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Threading.dll
 G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Multimedia.Midi.pdb
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.csproj.AssemblyReference.cache
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.UC_Trackbar.resources
@@ -58,3 +54,4 @@ G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.exe
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.pdb
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.MainForm.resources
 G:\_git\MIDI_tester\SequencerDemo\obj\Debug\SequencerDemo.SynthControlForm.resources
+G:\_git\MIDI_tester\SequencerDemo\bin\Debug\Sanford.Multimedia.Midi.xml

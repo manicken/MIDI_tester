@@ -221,7 +221,7 @@ namespace SequencerDemo
             try
             {
                 outDevice = new OutputDevice(outputDeviceID);
-                outDevice.DataSent += outDevice_DataSent;
+                //outDevice.DataSent += outDevice_DataSent;
                 outDevice.Error += OutDevice_Error;
                 PrintOutputDeviceCap(outputDeviceID);
             }
@@ -378,7 +378,7 @@ namespace SequencerDemo
                 positionHScrollBar.Minimum = 1;
                 positionHScrollBar.Value = 1;
                 positionHScrollBar.Maximum = sequence1.GetLength();
-                AppendRtxtLogLine("tempo:" + sequencer1.clock.Tempo);
+               // AppendRtxtLogLine("tempo:" + sequencer1.clock.Tempo);
                 //positionHScrollBar.Maximum = sequencer1.clock.Tempo * 2;
                 
             }
@@ -408,16 +408,12 @@ namespace SequencerDemo
                 outDevice.Send(cm);
             }
             pianoControl1.Send(e.Message);
-            if (oldTempo != sequencer1.clock.Tempo)
+            /*if (oldTempo != sequencer1.clock.Tempo)
             {
                 oldTempo = sequencer1.clock.Tempo;
-                /*positionHScrollBar.Invoke((MethodInvoker)delegate
-                {
-
-                    positionHScrollBar.Value = sequencer1.clock.Tempo;
-                });*/
+                
                 AppendRtxtLogLine("tempo:" + sequencer1.clock.Tempo);
-            }
+            }*/
             if (debugMidiMessageOutput)
             {
                 AppendRtxtLogLine(cm.Command.ToString() + " " + cm.Data1.ToString() + " " + cm.Data2.ToString() + "\r\n");
@@ -556,11 +552,6 @@ namespace SequencerDemo
         private void chkDebugMidiMessageOutput_CheckedChanged(object sender, EventArgs e)
         {
             debugMidiMessageOutput = chkDebugMidiMessageOutput.Checked;
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            sequencer1.clock.Tempo = positionHScrollBar.Value;
         }
 
         private void outputComboBox_SelectedIndexChanged(object sender, EventArgs e)
